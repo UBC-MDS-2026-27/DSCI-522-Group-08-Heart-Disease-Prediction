@@ -133,12 +133,30 @@ train_data.info()
 
 ```{python}
 
-plot1 = alt.Chart(train_data).mark_bar().encode(x = 'sex', y = 'target')
-plot2 = alt.Chart(train_data).mark_bar().encode(x = 'age', y = 'target')
-plot3 = alt.Chart(train_data).mark_bar().encode(x = 'cp', y = 'target')
-plot4 = alt.Chart(train_data).mark_bar().encode(x = 'trestbps', y = 'target')
-plot5 = alt.Chart(train_data).mark_bar().encode(x = 'chol', y = 'target')
-plot6 = alt.Chart(train_data).mark_bar().encode(x = 'fbs', y = 'target')
+plot1 = alt.Chart(train_data).mark_bar().encode(
+    x=alt.X('sex:N', title='Sex (0 = Female, 1 = Male)'),
+    y=alt.Y('mean(target):Q', title='Proportion with heart disease')
+).properties(title='Heart Disease Proportion by Sex')
+plot2 = alt.Chart(train_data).mark_bar().encode(
+    x=alt.X('age:Q', bin=True, title='Age (years)'),
+    y=alt.Y('mean(target):Q', title='Proportion with heart disease')
+).properties(title='Heart Disease Proportion by Age')
+plot3 = alt.Chart(train_data).mark_bar().encode(
+    x=alt.X('cp:N', title='Chest Pain Type (1–4)'),
+    y=alt.Y('mean(target):Q', title='Proportion with heart disease')
+).properties(title='Heart Disease Proportion by Chest Pain Type')
+plot4 = alt.Chart(train_data).mark_bar().encode(
+    x=alt.X('trestbps:Q', bin=True, title='Resting Blood Pressure (mm Hg)'),
+    y=alt.Y('mean(target):Q', title='Proportion with heart disease')
+).properties(title='Heart Disease Proportion by Resting Blood Pressure')
+plot5 = alt.Chart(train_data).mark_bar().encode(
+    x=alt.X('chol:Q', bin=True, title='Cholesterol (mg/dL)'),
+    y=alt.Y('mean(target):Q', title='Proportion with heart disease')
+).properties(title='Heart Disease Proportion by Cholesterol')
+plot6 = alt.Chart(train_data).mark_bar().encode(
+    x=alt.X('fbs:N', title='Fasting Blood Sugar (0 = Normal, 1 = High)'),
+    y=alt.Y('mean(target):Q', title='Proportion with heart disease')
+).properties(title='Heart Disease Proportion by Fasting Blood Sugar')
 
 
 (plot1 | plot2 | plot3) & (plot4 | plot5 | plot6)
@@ -147,14 +165,37 @@ plot6 = alt.Chart(train_data).mark_bar().encode(x = 'fbs', y = 'target')
 
 ```{python}
 
-plot6 = alt.Chart(train_data).mark_bar().encode(x = 'thalach', y = 'target')
-plot7 = alt.Chart(train_data).mark_bar().encode(x = 'restecg', y = 'target')
-plot8 = alt.Chart(train_data).mark_bar().encode(x = 'exang', y = 'target')
-plot9 = alt.Chart(train_data).mark_bar().encode(x = 'oldpeak', y = 'target')
-plot10 = alt.Chart(train_data).mark_bar().encode(x = 'slope', y = 'target')
-plot11 = alt.Chart(train_data).mark_bar().encode(x = 'ca', y = 'target')
+plot7 = alt.Chart(train_data).mark_bar().encode(
+    x=alt.X('thalach:Q', bin=True, title='Maximum Heart Rate (bpm)'),
+    y=alt.Y('mean(target):Q', title='Proportion with heart disease')
+).properties(title='Heart Disease Proportion by Maximum Heart Rate')
 
-(plot6 | plot7 | plot8) & (plot9 |plot10 |plot11)
+plot8 = alt.Chart(train_data).mark_bar().encode(
+    x=alt.X('restecg:N', title='Resting ECG Result'),
+    y=alt.Y('mean(target):Q', title='Proportion with heart disease')
+).properties(title='Heart Disease Proportion by Resting ECG')
+
+plot9 = alt.Chart(train_data).mark_bar().encode(
+    x=alt.X('exang:N', title='Exercise-Induced Angina (0 = No, 1 = Yes)'),
+    y=alt.Y('mean(target):Q', title='Proportion with heart disease')
+).properties(title='Heart Disease Proportion by Exercise-Induced Angina')
+
+plot10 = alt.Chart(train_data).mark_bar().encode(
+    x=alt.X('oldpeak:Q', bin=True, title='ST Depression (Oldpeak)'),
+    y=alt.Y('mean(target):Q', title='Proportion with heart disease')
+).properties(title='Heart Disease Proportion by ST Depression')
+
+plot11 = alt.Chart(train_data).mark_bar().encode(
+    x=alt.X('slope:N', title='Slope of Peak Exercise ST Segment'),
+    y=alt.Y('mean(target):Q', title='Proportion with heart disease')
+).properties(title='Heart Disease Proportion by ST Slope')
+
+plot12 = alt.Chart(train_data).mark_bar().encode(
+    x=alt.X('ca:N', title='Number of Major Vessels'),
+    y=alt.Y('mean(target):Q', title='Proportion with heart disease')
+).properties(title='Heart Disease Proportion by Number of Major Vessels')
+
+(plot7 | plot8 | plot9) & (plot10 | plot11 | plot12)
 
 ```
 
