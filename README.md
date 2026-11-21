@@ -70,9 +70,19 @@ The analysis downloads the Cleveland dataset programmatically from the UCI Machi
 - Python 3.14, managed through uv
 - Python packages specified in [`pyproject.toml`](pyproject.toml), with versions locked in [`uv.lock`](uv.lock)
 
-## AI Use Statement
+## AI use statement
 
-Our team used generative AI tools (Claude and ChatGPT) to troubleshoot setup errors and explain concepts and commands. All AI output was reviewed and edited by the authors, who take full responsibility for the content. All issues and pull requests were created, reviewed and merged by the authors. Example prompt include “Why does uv sync fail with ‘Expected a Python module at src/…/__init__.py’?”
+We used Anthropic Claude(Opus 5.5) and OpenAI ChatGPT(GPT-6) to assist with various aspects of this project. These tools supported debugging Python code, troubleshooting dependency and environment configuration errors, improving data wrangling and visualization code, resolving Git and GitHub issues, and diagnosing Quarto rendering problems. We also used AI to help interpret error messages, check the reproducibility of our analysis, and revise portions of the report and README for clarity.
+
+All AI-generated code, explanations, and writing suggestions were reviewed and edited by the authors. Code changes were tested where applicable, and analytical results were checked against the outputs of our implementation. The authors take full responsibility for the accuracy and content of this repository.
+
+Examples of prompts used during the project include:
+
+- "Why does `uv sync` fail with `Expected a Python module at: src/dsci_522_group_08/__init__.py`, and how can I fix the package configuration?"
+- "How can I troubleshoot a Quarto report that fails to render because of Python environment or dependency issues?"
+- "How do I debug an Altair visualization that is not correctly displaying the proportion of patients with heart disease across different clinical categories?"
+- "How can I verify that running the Quarto report from a clean environment reproduces the data processing steps and model evaluation results?"
+
 
 ## License
 
