@@ -35,8 +35,8 @@ If you would like to contribute to our project, please follow these steps:
 3. Clone the project repository and install the required packages:
 
    ```bash
-   git clone https://github.com/UBC-MDS-2026-27/DSCI-522-Group-08.git
-   cd DSCI-522-Group-08
+   git clone https://github.com/UBC-MDS-2026-27/DSCI-522-Group-08-Heart-Disease-Prediction.git
+   cd DSCI-522-Group-08-Heart-Disease-Prediction
    uv sync
    ```
 
