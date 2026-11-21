@@ -202,11 +202,11 @@ plot12 = alt.Chart(train_data).mark_bar().encode(
 
 Figures 1 and 2: Exploratory plots of clinical measurements and heart disease status in the training set.
 
-These plots let us look at the distribution of the recorded measurements alongside heart disease status. We included both numerical measurements, such as age and cholesterol, and categorical measurements, such as chest pain type. We would need to summarize the proportion of patients with heart disease within each group to make clearer comparisons between measurements.
+The exploratory plots show that the proportion of patients with heart disease varies across several clinical measurements. Patients with exercise-induced angina (chest pain during exercise), chest pain type 4, and a higher number of major vessels tend to have a higher proportion of heart disease. In contrast, fasting blood sugar and resting blood pressure show less obvious differences across groups. This suggests that some measurements may be more useful than others for predicting heart disease.
+
 
 ### Preprocessing
  
-
 Before training the models, we needed to prepare the data because the clinical measurements are not all recorded in the same way. For numerical measurements such as age, cholesterol, and blood pressure, we filled missing values using the median and standardized the values so that differences in their scales would not affect the models. For the number of major vessels, we replaced missing values with the most common value and then standardized so that they are on the same scale.
 
 We used one-hot encoding for categorical measurements such as chest pain type, resting electrocardiogram results, and thallium scan results, meaning each category became its own indicator column. We encoded the slope of the ST segment as an ordered category and used binary indicator columns for sex, fasting blood sugar, and exercise-induced chest pain. These preprocessing steps were combined with each model in a pipeline so that the transformations could be fitted within the training folds during cross-validation.
