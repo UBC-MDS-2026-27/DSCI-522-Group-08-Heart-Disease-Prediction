@@ -1,19 +1,25 @@
 [project]
 name = "dsci-522-group-08"
 version = "0.1.0"
-description = "Add your description here"
+description = "Predicting heart disease from routine clinical measurements"
 readme = "README.md"
 authors = [
-    { name = "“sarika020”", email = "sarikatasnim95@gmail.com" }
+    { name = "Yuhao Gao" },
+    { name = "Sarika Tasnim" },
+    { name = "Christa Ingabire" },
+    { name = "Nassiba Taib" },
 ]
 requires-python = ">=3.14"
 dependencies = [
-    "altair>=6.3.0",
-    "jupyter>=1.1.1",
-    "numpy>=2.5.5",
-    "pandas>=3.1.1",
-    "requests>=2.34.2",
-    "scikit-learn>=1.9.1",
+    "altair==6.3.0",
+    "ipykernel==7.4.0",
+    "jupyter==1.1.1",
+    "nbclient==0.11.0",
+    "numpy==2.5.5",
+    "pandas==3.1.1",
+    "pyyaml==6.0.3",
+    "requests==2.34.2",
+    "scikit-learn==1.9.1",
 ]
 
 [tool.uv]
