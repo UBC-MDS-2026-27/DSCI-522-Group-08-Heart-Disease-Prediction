@@ -14,9 +14,10 @@ The dataset used in this project is the Heart Disease dataset (Janosi et al., 19
 
 We use the Cleveland Clinic Foundation subset, where each row represents one patient. The dataset contains 13 clinical measurements and a diagnosis of heart disease, recorded on a scale from 0 (no disease) to 4. We combine values 1 through 4 into a single "heart disease present" class, making this a binary classification problem.
 
+
 ## Report
 
-The rendered analysis report is available [here](https://ubc-mds-2026-27.github.io/DSCI-522-Group-08-Heart-Disease-Prediction/analysis/heart_disease_analysis.html).
+The rendered analysis report is available [here](https://ubc-mds-2026-27.github.io/DSCI-522-Group-08-Heart-Disease-Prediction/).
 
 ## Usage
 
