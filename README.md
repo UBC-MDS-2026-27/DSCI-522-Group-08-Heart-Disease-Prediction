@@ -23,6 +23,8 @@ The rendered analysis report is available [here](https://ubc-mds-2026-27.github.
 
 The following instructions explain how to reproduce the analysis and render the report.
 
+**Note:** An internet connection is required to download the dataset and the Docker image (when using Docker). Rendering the report runs the analysis again and may overwrite previously generated data and report files.
+
 ### Running the analysis using Docker
 
 Make sure [Docker Desktop](https://www.docker.com/products/docker-desktop/) is installed and running.
@@ -125,8 +127,6 @@ analysis/heart_disease_analysis.html
 ```
 
 The analysis downloads the Cleveland dataset programmatically from the UCI Machine Learning Repository. An unmodified copy is saved in `data/raw/`, and the cleaned dataset is saved in `data/processed/`.
-
-**Note:** An internet connection is required to download the dataset. Rendering the report runs the analysis again and may overwrite previously generated data and report files.
 
 ## Dependencies
 
