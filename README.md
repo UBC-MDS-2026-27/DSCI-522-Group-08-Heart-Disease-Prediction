@@ -23,11 +23,79 @@ The rendered analysis report is available [here](https://ubc-mds-2026-27.github.
 
 The following instructions explain how to reproduce the analysis and render the report.
 
-### 1. Install the required tools
+**Note:** An internet connection is required to download the dataset and the Docker image (when using Docker). Rendering the report runs the analysis again and may overwrite previously generated data and report files.
+
+### Running the analysis using Docker
+
+Make sure [Docker Desktop](https://www.docker.com/products/docker-desktop/) is installed and running.
+
+Clone the repository and navigate to the project directory:
+
+```bash
+git clone https://github.com/UBC-MDS-2026-27/DSCI-522-Group-08-Heart-Disease-Prediction.git
+cd DSCI-522-Group-08-Heart-Disease-Prediction
+```
+
+#### 1. Generate an SSH key
+
+If you do not already have an SSH key at `~/.ssh/id_ed25519.pub`, run:
+
+```bash
+ssh-keygen -t ed25519
+```
+
+Press Enter at each prompt to accept the defaults.
+
+Skip this step if the required key already exists. Do not overwrite an existing key.
+
+If the public key is missing, Docker may create a directory at `~/.ssh/id_ed25519.pub` instead. If this happens, remove the empty directory and generate the SSH key before proceeding.
+
+
+#### 2. Download the Docker image
+
+From the root directory of the cloned repository, run:
+
+```bash
+docker compose pull
+```
+#### 3. Render the report
+
+From the repository root, run:
+
+```bash
+docker compose run --rm analysis-env uv run quarto render analysis/heart_disease_analysis.qmd
+```
+
+This executes the analysis inside the Docker container and generates the HTML report at:
+
+`analysis/heart_disease_analysis.html`
+
+Open the generated HTML file in your web browser to view the report. The file is accessible on your local computer because the project directory is mounted inside the Docker container.
+
+You can also view the [published analysis report](https://ubc-mds-2026-27.github.io/DSCI-522-Group-08-Heart-Disease-Prediction/).
+
+#### 4. Container cleanup
+
+The `--rm` option automatically removes the container when rendering is complete.
+
+If you started the container in the background using
+`docker compose up -d`, stop and remove it by running:
+
+```bash
+docker compose down
+```
+
+#### 5. Contributing
+
+For instructions on modifying the project or working interactively inside the Docker container, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+### Running the analysis locally (without Docker)
+
+#### 1. Install the required tools
 
 Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and [Quarto](https://quarto.org/docs/get-started/). Both provide installation instructions for macOS and Windows.
 
-### 2. Clone the repository
+#### 2. Clone the repository
 
 Open a terminal and run:
 
@@ -36,7 +104,7 @@ git clone https://github.com/UBC-MDS-2026-27/DSCI-522-Group-08-Heart-Disease-Pre
 cd DSCI-522-Group-08-Heart-Disease-Prediction
 ```
 
-### 3. Set up the Python environment
+#### 3. Set up the Python environment
 
 Run the following command from the repository root:
 
@@ -46,7 +114,7 @@ uv sync
 
 This installs the project's Python dependencies using the versions specified in `uv.lock`. If the required Python version is not installed, uv will download it automatically.
 
-### 4. Render the report
+#### 4. Render the report
 
 From the repository root, run:
 
@@ -62,9 +130,11 @@ analysis/heart_disease_analysis.html
 
 The analysis downloads the Cleveland dataset programmatically from the UCI Machine Learning Repository. An unmodified copy is saved in `data/raw/`, and the cleaned dataset is saved in `data/processed/`.
 
-**Note:** An internet connection is required to download the dataset. Rendering the report runs the analysis again and may overwrite previously generated data and report files.
-
 ## Dependencies
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (for running the analysis using Docker)
+
+The following dependencies are included in the Docker image and only need to be set up manually when running the analysis without Docker:
 
 - [uv](https://docs.astral.sh/uv/) (version 0.12 or higher)
 - [Quarto](https://quarto.org/) (version 1.10.18 or higher)
