@@ -70,6 +70,8 @@ This executes the analysis inside the Docker container and generates the HTML re
 
 `analysis/heart_disease_analysis.html`
 
+Open the generated HTML file in your web browser to view the report. The file is accessible on your local computer because the project directory is mounted inside the Docker container.
+
 You can also view the [published analysis report](https://ubc-mds-2026-27.github.io/DSCI-522-Group-08-Heart-Disease-Prediction/).
 
 #### 4. Container cleanup
