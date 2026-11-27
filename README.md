@@ -136,8 +136,8 @@ The analysis downloads the Cleveland dataset programmatically from the UCI Machi
 
 The following dependencies are included in the Docker image and only need to be set up manually when running the analysis without Docker:
 
-- [uv](https://docs.astral.sh/uv/) (version 0.12 or higher)
-- [Quarto](https://quarto.org/) (version 1.10.18 or higher)
+- [uv](https://docs.astral.sh/uv/) (version 0.13.7 or higher)
+- [Quarto](https://quarto.org/) (version 1.11.9 or higher)
 - Python 3.14, managed through uv
 - Python packages specified in [`pyproject.toml`](pyproject.toml), with versions locked in [`uv.lock`](uv.lock)
 
